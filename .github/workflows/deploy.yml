@@ -17,6 +17,6 @@ jobs:
       - name: Docker build
         run: docker build -t ne-klub-bot:0.0.1 .
       - name: Tag docker container
-        run: docker tag ne-klub-bot:0.0.1 $DOCKER_USERNAME/ne-klub-bot:0.0.1
+        run: docker tag ne-klub-bot:0.0.1 5dt1yim57hnf1ap/ne-klub-bot:0.0.1
       - name: Push docker container to registry
-        run: docker push $DOCKER_USERNAME/ne-klub-bot:0.0.1
+        run: docker push 5dt1yim57hnf1ap/ne-klub-bot:0.0.1
