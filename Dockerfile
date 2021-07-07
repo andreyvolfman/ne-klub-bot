@@ -1,4 +1,4 @@
-FROM golang:1.16.5-alpine
+FROM golang:1.16
 
 WORKDIR /go/src/github.com/andreyvolfman/ne-klub-bot
 
@@ -8,11 +8,10 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /go/bin/github.com/andreyvolfman/ne-klub-bot/main .
+RUN GOOS=linux GOARCH=amd64 go build -o /go/bin/github.com/andreyvolfman/ne-klub-bot/main .
 
 FROM scratch
 
 COPY --from=0 /go/bin/github.com/andreyvolfman/ne-klub-bot/main .
-COPY --from=0 /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
-CMD ["./main"]
+CMD ["./main"]  

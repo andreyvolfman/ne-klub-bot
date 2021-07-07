@@ -1,4 +1,4 @@
-module github.com/andreyvolfman/NeKlubBot
+module github.com/andreyvolfman/ne-klub-bot
 
 go 1.16
 

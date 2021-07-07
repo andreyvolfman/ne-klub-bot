@@ -8,5 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Tets
-      run: echo "Hello BITCH"
+    - uses: actions/checkout@v2
+    - name: Docker build
+      run: docker build -t ne-klub-bot .
