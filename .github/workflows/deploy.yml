@@ -1,0 +1,12 @@
+name: ne-klub-bot
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Tets
+      run: echo "Hello BITCH"
