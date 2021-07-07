@@ -13,8 +13,11 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          RELEASE_VERSION: ne-klub-bot:0.0.1
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - name: Docker build
-        run: docker build -t ne-klub-bot:0.0.1 .
+        run: docker build -t $RELEASE_VERSION .
+      - name: Tag docker container
+        run: docker tag $RELEASE_VERSION $DOCKER_USERNAME/$RELEASE_VERSION
       - name: Push docker container to registry
-        run: docker push ne-klub-bot:0.0.1
+        run: docker push $DOCKER_USERNAME/$RELEASE_VERSION
